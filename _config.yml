@@ -5,8 +5,8 @@ author: Saad Hasib
 email: saadhasib@outlook.com
 avatar: assets/images/avatar.jpg
 
-baseurl: "/" # the subpath of your site, e.g. /blog
-url: "https://thedig95.github.io/" # the base hostname & protocol for your site
+baseurl: "/"
+url: "https://thedig95.github.io/"
 
 github_url: "https://github.com/theDIG95"
 
