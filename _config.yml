@@ -1,1 +1,17 @@
-theme: jekyll-theme-midnight
+title: theDIG95
+subtitle: Coding Experiments
+description: This is my personal blog to showcase my experiments and projects
+author: Saad Hasib
+email: saadhasib@outlook.com
+avatar: assets/images/avatar.jpg
+
+baseurl: "/jekyll-theme-prologue" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site
+
+github_url: "https://github.com/theDIG95"
+
+google_analytics:
+
+# Theme settings
+theme: jekyll-theme-prologue
+collections: [sections]

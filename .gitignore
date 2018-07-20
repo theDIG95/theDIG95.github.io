@@ -1,0 +1,6 @@
+/_site
+/.vscode
+*.gem
+*.gemspec
+.sass-cache
+Gemfile.lock
