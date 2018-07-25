@@ -146,6 +146,13 @@
 		border-top: solid 1px #41484c;
 	}
 
+	code {
+		background-color: #222222;
+		font-family: "Courier New", monospace;
+		font-size: 0.75em;
+		padding: 0.1em 0.25em;
+	}
+
 	pre {
 		-webkit-overflow-scrolling: touch;
 		font-family: "Courier New", monospace;
