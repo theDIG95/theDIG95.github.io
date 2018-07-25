@@ -1,7 +1,7 @@
 @import 'libs/vars';
 @import 'libs/functions';
 @import 'libs/mixins';
-@charset "UTF-8";
+@import url(native.css);
 @import url("font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
 @import "libs/skel";
@@ -146,16 +146,6 @@
 		border-top: solid 1px #41484c;
 	}
 
-	code {
-		background: #d6d6d6;
-		border-color: rgba(0, 0, 0, 0.2);
-		border-radius: 4px;
-		font-family: "Courier New", monospace;
-		font-size: 0.75em;
-		padding: 0.25em 0.325em;
-        color: #323232;
-	}
-
 	pre {
 		-webkit-overflow-scrolling: touch;
 		font-family: "Courier New", monospace;
@@ -163,8 +153,8 @@
 		tab-size: 4;
 		margin: 0 0 2em 0;
 		code {
+			font-size: 0.75em;
 			display: block;
-			line-height: 1.5;
 			padding: 0.75em 1em;
 			overflow-x: auto;
 		}
