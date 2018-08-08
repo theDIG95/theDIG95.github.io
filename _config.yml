@@ -13,5 +13,4 @@ github_url: "https://github.com/theDIG95"
 google_analytics:
 
 # Theme settings
-theme: jekyll-theme-prologue
 collections: [sections]
