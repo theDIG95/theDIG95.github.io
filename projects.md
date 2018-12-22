@@ -8,10 +8,14 @@ icon: fa-wrench
 order: 3
 ---
 
-## Theano based ANN Classifier
+## ► Theano based ANN Classifier
 
 An artificial neural network for classification problem. Tested on "payment default of credit cards dataset". [Repository link](https://github.com/theDIG95/Payment-default-ANN).
 
-## Tensorlfow based ANN Regressor
+---
+
+## ► Tensorlfow based ANN Regressor
 
 An artificial neural network for predicting values. Tested for predicting gold prices. [Repository link](https://github.com/theDIG95/Gold-prices-ANN).
+
+---
