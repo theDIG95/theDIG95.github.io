@@ -12,6 +12,8 @@ order: 3
 
 A convolutional neural network for classification problem. Tested on "MNIST handwritten digit dataset". [Repository link](https://github.com/theDIG95/MNIST-CNN).
 
+---
+
 ## ► Theano based ANN Classifier
 
 An artificial neural network for classification problem. Tested on "payment default of credit cards dataset". [Repository link](https://github.com/theDIG95/Payment-default-ANN).
