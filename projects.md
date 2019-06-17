@@ -26,13 +26,13 @@ An artificial neural network for predicting values. Tested for predicting gold p
 
 ---
 
-## Ant Colony Optimization
+## ► Ant Colony Optimization
 
 An implementation of the ant colony optimization to find the minimal distance path along given points. [Repository link](https://github.com/theDIG95/Ant-Colony-Optimization)
 
 ---
 
-## Shuffled Frog Leaping Algorithm
+## ► Shuffled Frog Leaping Algorithm
 
 An implementation of the shuffled frog leaping algorithm to find an optimal solution. [Repository link](https://github.com/theDIG95/Shuffled-frog-leaping-algorithm)
 
