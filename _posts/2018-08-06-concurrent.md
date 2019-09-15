@@ -4,12 +4,12 @@ layout: post
 icon : fa-code 
 ---
 
-A pool of resources is a reusable set of resources that can perform some function multiple times on new data without having to be initialized and cleaned up after each run. By using such a reusable method a lot of overhead is reduced that comes with spawning and cleaning up resources. It is suitable when the same or even different operation has to be done on large amount of data and the existing resources are re allocated to the next input.
+A "pool of resources" is a reusable set of resources that can perform some function multiple times on data without having to be initialized and cleaned up after each run. By using such a reusable method a lot of overhead is reduced that comes with spawning and cleaning up resources. It is suitable when the same or even different operation has to be done on large amount of data and the existing resources are re-allocated to the next input.
 
 ## The Executer  
 
 The executer represents an abstract class of a pool of resources which can contain any number of workers. It will divide the input data among the available workers and reuse the free workers as they finish processing a piece of the input data.  
-As this is an abstract class it is not used directly rather it's solid base classes are used , which are
+As this is an abstract class it is not used directly rather it's solid base classes are used, which are
 
 - `import concurrent.futures.ThreadPoolExecutor` which uses threads as workers, suitable with I/O bound operations.
 - `import concurrent.futures.ProcessPoolExecutor` which uses processes as workers, suitable with CPU bound operations.
