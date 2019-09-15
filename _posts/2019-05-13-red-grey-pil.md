@@ -5,7 +5,7 @@ icon : fa-code
 ---
 
 This is a reiteration of a [previous post]({{ site.baseurl }}{% post_url 2018-07-28-red-enhance %}) in which we saw how to enhance a color channel of an image using OpenCV and python.  
-In this post we will use a threshold value for a channel(red in this case) and use that ro retain color or to convert to grey scale.  
+In this post we will use a threshold value for a channel(red in this case) and use that to retain color or to convert to grey scale for each pixel.  
 Firstly in this experiment we will use the [Pillow](https://python-pillow.org/) library.  
 Now we would do our imports.  
 
@@ -15,7 +15,7 @@ from PIL import Image
 import matplotlib.pyplot as plt
 ```
 
-Now we need to load our image into pillow and then convert it into a numpy array for further processing
+After this, we need to load our image into pillow and then convert it into a numpy array for further processing
 
 ```python
 # Image path

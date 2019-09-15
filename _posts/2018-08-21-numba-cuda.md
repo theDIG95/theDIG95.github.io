@@ -8,7 +8,7 @@ Apart from compiling the code to run efficiently on the CPU, [Numba](http://numb
 
 ## Writing a Kernel  
 
-Writing a CUDA kernel using Numba is as simple as adding a decorator, `numba.cuda.jit` to a compatible function. Apart from that the indices of the threads inside the blocks and the blocks inside the threads has to be calculated to access the appropriate element of the array.
+Writing a CUDA kernel using Numba is as simple as adding a decorator, `numba.cuda.jit` to a compatible function. Apart from that, the indices of the threads inside the GPU blocks and the blocks inside the threads has to be calculated to access the appropriate element of the array.
 
 ```python
 @cuda.jit
@@ -18,7 +18,7 @@ def doubled(arr):
     arr[x_idx, y_idx] *= 2
 ```
 
-A CUDA 'jitted' function cannot return a value rather it writes the result to an array. Now this function can be called after setting the block and grid sizes
+A CUDA 'jitted' function cannot return a value rather it writes the result to an array. Now this function can be called after setting the block and grid sizes of the GPU
 
 ```python
 arr = np.random.randn(3, 3).astype(np.float32)
@@ -86,11 +86,11 @@ flattened_arr = arr.flatten()
 reduced_arr = reduce_gpu(flattened_arr)
 ```
 
-We do not pass elements as arguments to the function call rather the input array.
+We do not pass elements as arguments to the function call rather the input array `flattened_arr`.
 
 ## Vectorized UFuncs on GPU  
 
-The `vectorize` decorator can me targeted for the GPU by passing `target="cuda"` to the decorator.
+The `vectorize` decorator can be targeted for the GPU by passing `target="cuda"` to the decorator.
 
 ```python
 @vectorize(
@@ -109,7 +109,7 @@ arr = np.random.randn(3, 3).astype(np.float32)
 out = doubled_ufunc(arr)
 ```
 
-This uFunc can return values, memory transfer is done by Numba.
+This uFunc can return values and memory transfer is done by Numba.
 
 ## Generalized UFuncs on GPU  
 

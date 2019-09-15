@@ -4,7 +4,7 @@ layout: post
 icon : fa-code 
 ---
 
-To make a program efficient we must make it utilize the available resources efficiently. In order to do that we must first identify the portions of the code that are inefficient. Efficient of the code is with respect to the resources it uses with the most obvious ones being the CPU and the Memory usage. However the program may also be using other resources such as the network or the permanent storage devices or even sensors in an embedded application. Here we will look how to identify the CPU and memory usage of a python program.
+To make a program efficient we must make it utilize the available resources efficiently. In order to do that we must first identify the portions of the code that are not up to par. Efficiency of the code is with respect to the resources it uses with the most obvious ones being the CPU and the Memory usage. However the program may also be using other resources such as the network or the permanent storage devices or even sensors in an embedded application. Here we will look how to measure the CPU and memory usage of a python program.
 
 ## The example problem  
 
@@ -81,12 +81,12 @@ if __name__ == '__main__':
     main()
 ```
 
-As you can see here it does not use any external libraries such as numpy or PIL to accelerate the code as we are just using it as an example for profiling.
+As you can see here it does not use any external libraries such as numpy to accelerate the code as we are just using it as an example for profiling.
 
 ## When and Why  
 
 Profiling is usually done after an implementation of the code or at least a module or sub-module is complete because premature optimization can lead to complexities. That does not mean we do not design the code to be optimized when we begin writing, rather we do not go into the complexities such as comparing the performance of different approaches or libraries at the initial stage. The first objective is to get the code to work, then we get the code to work fast.  
-Also it is highly beneficial to unit test the code before working on optimization as we want to retain the functionality of the code. Unit tests become even more helpful when the code base is large and we might break the code during optimizations.  
+Also, it is highly beneficial to unit test the code before working on optimization as we want to retain the functionality of the code. Unit tests become even more helpful when the code base is large and we might break the code during optimizations.  
 We profile a portion of the code at a time, usually the one which we think might be causing slow down. Then with profiling we can narrow down to exact portion of the code which slows it down and then focus on it.
 
 ## Before we profile  
@@ -113,7 +113,7 @@ end_time = time.time()
 print("Total execution time is: ", end_time - start_time)
 ```
 
-This gives us the wall clock time of execution of the code.  
+This gives us the wall-clock time of execution of the code.  
 Besides this we can use `%time` of the `IPython` terminal to measure the execution time.
 
 ```python
@@ -157,11 +157,11 @@ $ python -m cProfile jset_profile.py
         1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
 ```
 
-Here it sidplays the total number of calls it made to methods or functions along with their execution times. As we can see here the `jset_profile.py:43(calc_point_val)` i.e. the `calc_point_val` function in the file is called 10000 times with time of 0 seconds per call and total execution time of 1.435 seconds. This is the function that takes up most of the time and indicates that this particular method needs attention.
+Here it displays the total number of calls it made to methods or functions along with their execution times. As we can see here the `jset_profile.py:43(calc_point_val)` i.e. the `calc_point_val` function in the file is called 10000 times with time of 0 seconds per call and total execution time of 1.435 seconds. This is the function that takes up most of the time and indicates that this particular method needs attention.
 
 ## cProfile output to file for more analysis  
 
-We can also save the output to the file via the `-o <file_name>` flag. This helps us keep record and also for more in-depth analysis using the [pstats](https://docs.python.org/3/library/profile.html#module-pstats) module included in the standard library. This file is not human readabl so we need the `pstats` module.
+We can also save the output to the file via the `-o <file_name>` flag. This helps us keep record and also for more in-depth analysis using the [pstats](https://docs.python.org/3/library/profile.html#module-pstats) module included in the standard library. This file is not human readable so we need the `pstats` module.
 
 ```python
 In [1]: import pstats
@@ -192,7 +192,7 @@ Sat Aug 18 20:02:06 2018    jstats.stats
         1    0.000    0.000    1.425    1.425 jset_profile.py:62(main)
 ```
 
-To visualize this data we can use the [SnakeViz](https://jiffyclub.github.io/snakeviz/) library. It used the output file and then displays a GUI in the browser through which we can analyze the call stack.
+To visualize this data we can use the [SnakeViz](https://jiffyclub.github.io/snakeviz/) library. It uses the output file and then displays a GUI in the browser through which we can analyze the call stack.
 ![SnakeViz example](https://jiffyclub.github.io/snakeviz/img/func_info.png)
 
 ## Line by line execution time  
@@ -244,7 +244,7 @@ Here we can see that the calculation on line 49 and 53 take a lot of time which 
 
 ## Finding the memory usage  
 
-After we have made the application run faster we can also profile it to save on the memory consumption too. For this we can use [memory_profiler](https://pypi.org/project/memory_profiler/). This will give us the memory incremeent after each line of code. This can help us see if memory consumption is reduced after we optimize our code.  
+After we have made the application run faster we can also profile it to save on the memory consumption too. For this we can use [memory_profiler](https://pypi.org/project/memory_profiler/). This will give us the memory increment after each line of code. This can help us see if memory consumption is reduced after we optimize our code.  
 As with `line_profiler` we need to add a decorator `@profile` to the method or function to profile. The decorator doesn't need to be defined or imported.
 
 ```python
@@ -278,7 +278,7 @@ Line #    Mem usage    Increment   Line Contents
     41   31.461 MiB    0.000 MiB                   calc_point_val(x_val, y_val, threshold, max_iters, x_center, y_center))
 ```
 
-As you can see here the memory increment is zero megabytes so we can safely assume that memory consumption is low byt that is dependent on the operations and all the variables we are storing in it.  
+As you can see here the memory increment is zero megabytes so we can safely assume that memory consumption is low but that is dependent on the operations and all the variables we are storing in it.  
 We can also create a live graph of the memory consumption of the process by using `mprof` provided by the same library.
 
 ```bash
@@ -295,7 +295,7 @@ This will first run the code and then plot the results using matplotlib.
 ## Viewing objects on the heap  
 
 Sometimes it is also valuable to see the objects in the memory to try and find if there are any unintended objects that are causing a memory leak. We can use [Python Object Graphs](https://mg.pov.lt/objgraph/) which give the ability to inspect objects.  
-We can do it in an interactive console or in script. However I've found that the IPython console doesn't give such accurate results because it has activitu going on in the background.  
+We can do it in an interactive console or in script. However I've found that the IPython console doesn't give such accurate results because it has activity going on in the background.  
 To do it in script we import the library and then view growth before and after the function call.  
 
 ```python
